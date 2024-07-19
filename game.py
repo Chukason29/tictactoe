@@ -19,7 +19,22 @@ class Game:
     
 
     #TODO create a method for each player to play its turn and return to the next player if there is no winner
+    def player_turn(self):
+        if (self.status == True):
+            number_choice = input("Enter Your Numbers")
+            if number_choice < 0 or number_choice > 2:
+                print("Please Enter a number 0-2")
+            else:
+                num1, num2 = number_choice.split(" ")
+                Game.game_boxes[num1][num2] = self.sign
+    
+    #TODO change player's turn after playing
+        #==> check if 
+    
+    #TODO This method check if their is winner or the game has ended
+    
 
+            
 
     #TODO use the __repr__() to show the object format
     def __repr__(self):
