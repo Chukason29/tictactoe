@@ -21,11 +21,11 @@ class Game:
     #TODO create a method for each player to play its turn and return to the next player if there is no winner
     def player_turn(self):
         if (self.status == True):
-            number_choice = input("Enter Your Numbers")
-            if number_choice < 0 or number_choice > 2:
+            number_choice = input("Enter Your Numbers: ")
+            num1, num2 = map(int, number_choice.split(" "))
+            if (num1 < 0 or num1 > 2) or (num2 < 0 or num1 > 2):
                 print("Please Enter a number 0-2")
             else:
-                num1, num2 = number_choice.split(" ")
                 Game.game_boxes[num1][num2] = self.sign
     
     #TODO change player's turn after playing
@@ -40,5 +40,7 @@ class Game:
     def __repr__(self):
         return f"Player({self.name}, {self.status}, {self.sign})"
 
-player1 = Game(input("Player1 Name: "), False, input("Player1 Sign: "))
-player2 = Game(input("Player2 Name: "), False, input("Player2 Sign: "))
+player1 = Game(input("Player1 Name: "), True, input("Player1 Sign: "))
+#player2 = Game(input("Player2 Name: "), False, input("Player2 Sign: "))
+
+player1.player_turn()
