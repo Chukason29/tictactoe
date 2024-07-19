@@ -6,6 +6,16 @@ class Game:
         ["O", "O", "O"],
         ["O", "O", "O"],
     ]
+    winnerList = [
+        [[0,0], [0,1], [0,2]],
+        [[1,0], [1,1], [1,2]],
+        [[2,0], [2,1], [2,2]],
+        [[0,0], [1,0], [2,0]],
+        [[0,1], [1,1], [2,1]],
+        [[0,2], [1,2], [2,2]],
+        [[0,0], [1,1], [2,2]],
+        [[0,2], [1,1], [2,0]]
+    ]
 
 
     #TODO create instance variables of player. playername, status, sign
@@ -27,11 +37,16 @@ class Game:
                 print("Please Enter a number 0-2")
             else:
                 Game.game_boxes[num1][num2] = self.sign
+                for x in Game.game_boxes:
+                    print(x)
     
     #TODO change player's turn after playing
+
         #==> check if 
     
-    #TODO This method check if their is winner or the game has ended
+    #TODO This method check if their is winner or the game has ended without a winner
+    
+     
     
 
             
