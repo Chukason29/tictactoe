@@ -2,7 +2,7 @@ class Game:
     #TODO create class variable
     winner = False  #bool to check for a winner
     game_boxes = [
-        ["O", "O", "O"],
+        ["X", "X", "X"],
         ["O", "O", "O"],
         ["O", "O", "O"],
     ]
@@ -30,8 +30,16 @@ class Game:
     def is_winner (cls):
         #TODO This method check if their is winner or the game has ended without a winner
         for firstLayer in Game.winnerList:
-            for points in firstLayer:
-                print(points)
+            if firstLayer[0] != "O" or firstLayer[1] !="O" or firstLayer[2] != "O":
+                if firstLayer[0] == firstLayer[1] == firstLayer[2] :
+                    Game.winner = True
+                else: 
+                    Game.winner = False
+        return Game.winner
+    #@ classmethod
+    #def is_game_finished(cls):
+    #    for firstlayer in Game.winnerList:
+    #        for n in firstlayer
     @classmethod
     def display_game(cls):
         for x in Game.game_boxes:
@@ -47,6 +55,8 @@ class Game:
             else:
                 Game.game_boxes[num1][num2] = self.sign
                 Game.display_game()
+                if Game.is_winner():
+                    print(f"HOORAY!!! {self.name} is the winner")
 
     
     #TODO change player's turn after playing
