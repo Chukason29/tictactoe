@@ -2,7 +2,7 @@ class Game:
     #TODO create class variable
     winner = False  #bool to check for a winner
     game_boxes = [
-        ["X", "X", "X"],
+        ["O", "O", "O"],
         ["O", "O", "O"],
         ["O", "O", "O"],
     ]
@@ -38,8 +38,12 @@ class Game:
         return Game.winner
     @ classmethod
     def is_game_finished(cls):
-        for firstlayer in Game.winnerList:
-           pass
+        check = False
+        for x in Game.game_boxes:
+            if x[0] != "O" or x[1] !="O" or x[2] != "O":
+                check = True
+        return check
+    
     @classmethod
     def display_game(cls):
         for x in Game.game_boxes:
@@ -54,6 +58,7 @@ class Game:
                 print("Please Enter a number 0-2")
             else:
                 Game.game_boxes[num1][num2] = self.sign
+                Game.display_game()
                 
     def play_game(self):
         while Game.is_game_finished == False:
@@ -66,17 +71,7 @@ class Game:
 
     
     #TODO change player's turn after playing
-
-        #==> check if 
-    
-    
-
-
-    
-     
-    
-
-            
+           
 
     #TODO use the __repr__() to show the object format
     def __repr__(self):
@@ -85,4 +80,4 @@ class Game:
 player1 = Game(input("Player1 Name: "), True, input("Player1 Sign: "))
 #player2 = Game(input("Player2 Name: "), False, input("Player2 Sign: "))
 
-player1.player_turn()
+player1.play_game()
