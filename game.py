@@ -36,10 +36,10 @@ class Game:
                 else: 
                     Game.winner = False
         return Game.winner
-    #@ classmethod
-    #def is_game_finished(cls):
-    #    for firstlayer in Game.winnerList:
-    #        for n in firstlayer
+    @ classmethod
+    def is_game_finished(cls):
+        for firstlayer in Game.winnerList:
+           pass
     @classmethod
     def display_game(cls):
         for x in Game.game_boxes:
@@ -54,9 +54,15 @@ class Game:
                 print("Please Enter a number 0-2")
             else:
                 Game.game_boxes[num1][num2] = self.sign
-                Game.display_game()
-                if Game.is_winner():
-                    print(f"HOORAY!!! {self.name} is the winner")
+                
+    def play_game(self):
+        while Game.is_game_finished == False:
+            if Game.is_winner():
+                print(f"HOORAY!!! {self.name} is the winner")
+                break
+            else:
+                self.player_turn()
+
 
     
     #TODO change player's turn after playing
