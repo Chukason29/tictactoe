@@ -29,9 +29,13 @@ class Game:
     @classmethod
     def is_winner (cls):
         #TODO This method check if their is winner or the game has ended without a winner
-        for firstLayer in winnerList:
+        for firstLayer in Game.winnerList:
             for points in firstLayer:
                 print(points)
+    @classmethod
+    def display_game(cls):
+        for x in Game.game_boxes:
+            print(x)
 
     #TODO create a method for each player to play its turn and return to the next player if there is no winner
     def player_turn(self):
@@ -42,9 +46,8 @@ class Game:
                 print("Please Enter a number 0-2")
             else:
                 Game.game_boxes[num1][num2] = self.sign
+                Game.display_game()
 
-                for x in Game.game_boxes:
-                    print(x)
     
     #TODO change player's turn after playing
 
