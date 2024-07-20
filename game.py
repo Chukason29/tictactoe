@@ -61,12 +61,13 @@ class Game:
                 Game.display_game()
                 
     def play_game(self):
-        while Game.is_game_finished == False:
+         while Game.is_game_finished() == False :
+            self.player_turn()
             if Game.is_winner():
                 print(f"HOORAY!!! {self.name} is the winner")
                 break
-            else:
-                self.player_turn()
+    
+                
 
 
     
